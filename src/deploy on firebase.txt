@@ -1,0 +1,10 @@
+firebase login
+firebase init
+  hosting
+    use an existing 
+      build 
+        y
+
+npm run build
+firebase deploy
+you should have your url

@@ -1,0 +1,36 @@
+.productRow {
+    margin-top: 30px;
+}
+
+.productRow__info {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.productRow__info > button {
+    outline-width: 0;
+    padding: 5px 10px;
+    background-color: #f0c14b;
+    border: 1px solid;
+    margin : 5px;
+    margin-top : 10px;
+    border-color: #a88734 #9c7e31 #846a29;
+    color: #111111; 
+}
+
+.productRow__info > button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px 1px lightgray;
+}
+
+.projectRow__container {
+    display: flex;
+}
+
+@media only screen and (max-width: 500px) {
+    .projectRow__container {
+        flex-direction: column;
+    }
+
+  }
