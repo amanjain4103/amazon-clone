@@ -1,7 +1,9 @@
 export const initialState = {
     basket: [],
     products: [],
-    user:{}
+    user:{},
+    productToBeViewed:{}
+
 };
 
 export const reducer = (state, action) => {
@@ -43,9 +45,7 @@ export const reducer = (state, action) => {
                 ...state,
                 productToBeViewed:action.item
             }
-            
+
         default: return state;
     }
 }
-
-// export default reducer;

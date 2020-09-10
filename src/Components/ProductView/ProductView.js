@@ -1,10 +1,18 @@
 import React from "react";
+import {useStateValue} from "../../StateProvider";
 import "./ProductView.css";
 
 const ProductView = () => {
+    
+    const [{productToBeViewed}, dispatch] = useStateValue();
+    console.log(productToBeViewed);
+
     return (
         <div className="productView">
-            this is product
+            {
+                // now productToBeViewed has all needed data 
+                // also consider when its emoty at starting
+            }
         </div>
     )
 }
