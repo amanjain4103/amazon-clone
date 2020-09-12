@@ -15,3 +15,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a {
+  text-decoration: none;
+}
+
+button {
+  transition: 0.4s;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px 3px lightgray;
+}

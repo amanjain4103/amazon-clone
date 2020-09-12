@@ -46,7 +46,7 @@ const Product = (props) => {
         <div className="product">
             <div key={props.id} className="product__info">
                 <p>{props.title}</p>
-                <p className="product__">
+                <p className="product__price">
                     <small>$</small>
                     <strong>{props.price}</strong>
                 </p>

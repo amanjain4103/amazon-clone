@@ -73,15 +73,16 @@ const Header = () => {
                             </div>
                         </Link>
                     }
-            
-                <div className="header__option">
-                    <span className="header__optionLineOne">
-                        Returns And
-                    </span>
-                    <span className="header__optionLineTwo">
-                        Orders
-                    </span>
-                </div>
+                <Link to="/orders">
+                    <div className="header__option">
+                        <span className="header__optionLineOne">
+                            Returns And
+                        </span>
+                        <span className="header__optionLineTwo">
+                            Orders
+                        </span>
+                    </div> 
+                </Link>
                 <a  target="_blank" href ="https://www.primevideo.com/">
                     <div className="header__option">
                         <span className="header__optionLineOne">

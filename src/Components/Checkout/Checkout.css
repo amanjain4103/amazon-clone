@@ -1,8 +1,7 @@
 .checkout {
     display: flex;
     background-color: white;
-    position: relative;
-    top: 60px;
+    padding-top: 100px;
 }
 
 
@@ -31,8 +30,7 @@
 
 @media only screen and (max-width: 650px) {
     .checkout {
+        padding-top: 200px;
         flex-wrap: wrap;
-        position: relative;
-        top: 7em;
     }
 }

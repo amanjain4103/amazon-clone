@@ -1,0 +1,18 @@
+//firebase account must be upgraded to blaze
+
+npm install ....
+npm i @stripe/react-stripe-js
+go and make account on stripe
+get your test api key or found it in developers sections and api keys
+
+
+firebase
+
+for below make sure yu have blaze plan
+
+functions >> firebase deploy --only functions
+get url from "firebase functions" and replace with url in axios
+
+amazone-clone >> npm run build
+              >> firebase deploy --only hosting
+              

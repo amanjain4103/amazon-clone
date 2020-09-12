@@ -6,6 +6,9 @@ export const initialState = {
 
 };
 
+export const getBasketTotal = (basket) => 
+  basket?.reduce((amount, item) => parseFloat(item.price) + parseFloat(amount), 0);
+
 export const reducer = (state, action) => {
     switch(action.type) {
         case "ADD_TO_BASKET":
@@ -38,6 +41,12 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 user: action.user
+            }
+
+        case "EMPTY_BASKET": 
+            return {
+                ...state,
+                basket: []
             }
         
         case "SET_PRODUCT_VIEW": 

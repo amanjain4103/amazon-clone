@@ -11,6 +11,8 @@
     z-index: 1;
     flex-grow: 2;
     transition: 0.4s ;
+    max-width: 400px;
+    /* flex: 1; */
 }
 
 .product:hover {
@@ -22,6 +24,8 @@
     width: 100%;
     object-fit: contain;
     margin-bottom: 15px;
+    max-width: 200px;
+    flex: 1;
 }
 
 .product__price {
@@ -34,6 +38,7 @@
 
 .product__buttons {
     display: flex;
+    
 }
 
 .product__buttons > button {
@@ -54,4 +59,5 @@
 
 .product__info {
     margin-bottom: 20px;
+    flex: 1;
 }
