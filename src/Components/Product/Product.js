@@ -58,7 +58,7 @@ const Product = (props) => {
                     }
                 </div>
             </div>
-
+            
             <img src={props.image} />
             
             <div className="product__buttons">

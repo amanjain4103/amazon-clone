@@ -1,10 +1,47 @@
-import React from "react";
+import React, {useState} from "react";
 import {useStateValue} from "../../StateProvider";
 import "./ProductView.css";
+import ReactImageZoom from 'react-image-zoom';
+
 
 const ProductView = () => {
+
     
     const [{productToBeViewed}, dispatch] = useStateValue();
+
+    const [windowWidth,setwindowWidth] = useState(window.innerWidth);
+
+    window.addEventListener("resize", () => {
+        setwindowWidth(window.innerWidth);
+    })
+
+    const imageZoomPropsForBigScreen = {
+        width: document.getElementById("img-container")?.style.width,
+        height: 400,
+        zoomWidth: document.getElementById("img-container")?.style.width,
+        offset:{
+            "vertical": 0,
+            "horizontal": 20
+        },
+        img: productToBeViewed.image
+    };
+
+    const imageZoomPropsForSmallScreen = {
+        width: document.getElementById("img-container")?.style.width,
+        height: 200,
+        zoomWidth: document.getElementById("img-container")?.style.width, 
+        zoomPosition: "original",
+        img: productToBeViewed.image
+    };
+
+    const imageZoomPropsForMediumScreen = {
+        width: document.getElementById("img-container")?.style.width,
+        height: 300,
+        zoomWidth: document.getElementById("img-container")?.style.width, 
+        zoomPosition: "original",
+        img: productToBeViewed.image
+    };
+
 
     const addToBasketFromProductView = () => {
         //dispatch  item into data layer
@@ -22,15 +59,38 @@ const ProductView = () => {
         
     }
 
+
     return (
         <div className="productView">
             {
                 productToBeViewed.title ?
                     <>
-                        <div className="productView__image"> 
-                            <img 
-                                src={productToBeViewed.image}
-                            />
+                        <div id="img-container" className="productView__image"> 
+                            
+                            {
+                                windowWidth < 500 
+                                ?
+                                (
+                                    <ReactImageZoom {...imageZoomPropsForSmallScreen} />
+                                )
+                                :
+                                (
+                                    windowWidth >500 && windowWidth <700
+                                    ?
+                                    (<ReactImageZoom {...imageZoomPropsForMediumScreen} />)
+                                    :
+                                    (
+                                        windowWidth > 700 && <ReactImageZoom {...imageZoomPropsForBigScreen} />
+                                    )
+                                )
+                                
+                                // <img 
+                                //     src={productToBeViewed.image}
+                                // />
+
+
+                            }
+                            
                         </div>
 
                         <div className="productView__info">

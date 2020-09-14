@@ -19,11 +19,11 @@ const Payment = () => {
     const stripe = useStripe();
     const elements = useElements();
     
-    const [error, setError] = useState();
+    const [error, setError] = useState(null);
     const [disabled, setDisabled] = useState()
     const [succeded, setSucceded] = useState()
     const [processing, setProcessing] = useState()
-    const [clientSecret, setClientSecret] = useState()
+    const [clientSecret, setClientSecret] = useState("");
 
     useEffect ( () => {
         // generate stripe secret which allows to charge the customer
@@ -43,41 +43,46 @@ const Payment = () => {
         getClientSecret();
     },[basket])
 
-    // console.log('THE SECRET IS >>>', clientSecret)
+    console.log('THE SECRET IS >>>', clientSecret)
     // console.log('👱', user)
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         setProcessing(true);
 
-        const payload = await stripe.confirmCardPayment(clientSecret, {
+        stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: elements.getElement(CardElement)
             }
-        }).then(({paymentIntent}) => {
+        }).then(({error,paymentIntent}) => {
             // payment initent = payment confirmation
             
-            db.collection('users')
-              .doc(user?.uid)
-              .collection('orders')
-              .doc(paymentIntent.id)
-              .set({
-                  basket: basket,
-                  amount: paymentIntent.amount,
-                  created: paymentIntent.created
-              })
+            if(!error) {
+                db.collection('users')
+                .doc(user?.uid)
+                .collection('orders')
+                .doc(paymentIntent.id)
+                .set({
+                    basket: basket,
+                    amount: paymentIntent.amount,
+                    created: paymentIntent.created
+                })
             
-            setSucceded(true);
-            setError(null);
-            setProcessing(false);
+                
+                setSucceded(true);
+                setError(null);
+                setProcessing(false);
 
-            dispatch({
-                type: "EMPTY_BASKET"
-            })
+                dispatch({
+                    type: "EMPTY_BASKET"
+                })
 
-            history.replace("/orders")   
-            
+                history.replace("/orders")   
+            }else {
+                console.log(error);
+            }
         })
+        .catch((err) => console.log(err))
     }
 
     const handleChange = (event) => {

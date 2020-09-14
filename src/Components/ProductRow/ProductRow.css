@@ -1,11 +1,27 @@
 .productRow {
     margin-top: 30px;
+    
 }
+
 
 .productRow__info {
     display: flex;
     padding: 20px;
-    justify-content: space-between;
+    justify-content: center;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.productRow__info > h2 {
+    text-transform: uppercase;
+    border-bottom: 5px solid gray;
+    transition: 0.4s ease-out;
+}
+
+.productRow__info > h2:hover {
+    text-transform: uppercase;
+    border: 5px dotted gray;
+    padding: 13px 20px 8px 20px ;
 }
 
 .productRow__info > button {

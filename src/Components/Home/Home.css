@@ -3,6 +3,7 @@
     z-index: -1;
     margin-bottom: -150px;
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+
 }
 
 
@@ -12,6 +13,8 @@
     flex-direction: column;
     position: relative;
     top: 60px;
+    max-width: 1500px;
+    margin: auto;
 }
 
 .home__row {
@@ -20,6 +23,7 @@
     margin-left: 5px;
     margin-right: 5px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 @media only screen and (max-width: 500px) {

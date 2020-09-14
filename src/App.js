@@ -11,6 +11,7 @@ import Orders from "./Components/Orders/Orders";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { auth } from './firebase.js';
+import "./App.css"
 
 const promise = loadStripe(
   "pk_test_51HQDHOG0TvrggPXhY5JdGibulbrEwHs8NUNhDPaO0sxgfmL0aCO0tshlrjcIZJ45A0YFyheHIlZlDeA12oQFwps500hDxUtZFq"

@@ -1,13 +1,14 @@
 import React from "react";
 import Product from "../Product/Product";
 import ProductRow from "../ProductRow/ProductRow";
-import "./Home.css"
+import "./Home.css";
+import Footer from "../Footer/Footer";
 
 
 const Home = () => {
     return (
         <div className="home">
-            <div className="home__container">
+            <div id="home__top" className="home__container">
                 <img 
                     alt=""
                     className="home__image"
@@ -46,11 +47,64 @@ const Home = () => {
                 
             </div>
 
+            <div className="home__row">
+                <Product 
+                   id={444}
+                   title={"The Endgame Paperback – 20 July 2020 by S. Hussain Zaidi"} 
+                   price={"10"} 
+                   image={"https://images-na.ssl-images-amazon.com/images/I/81tG88S60xL.jpg"}
+                   rating={5}
+                   description={"It's been three years since Shahwaz Ali Mirza and Vikrant Singh foiled dreaded terrorist Munafiq's attempt to leak State secrets from a naval server in Lakshadweep. Now posted with RAW, they have the task of providing security for BSF Special Director General Somesh Kumar, on his way to visit former Prime Minister Parmeshwar Naidu, who has been hospitalized after a car accident. However, Kumar's convoy is attacked by terrorists. They manage to kill him before being gunned down themselves. A tip-off leads the duo to a hotel on Mira Road where the prime suspect, Al Muqadam, is hiding. Vikrant recognizes him as Ayyub, the brother of one of his long-time informants, Mazhar Khan. Just when it looks like things can't get more difficult, Major Daniel Fernando gets in touch claiming that there is more to Naidu's accident than meets the eye. Soon, the entire team from the Lakshadweep operation finds itself getting together for a new mission... Hussain Zaidi is back with his irresistible cast of characters in this sizzling story of politics, betrayal and unimaginable terror"}
+                />
+
+                <Product 
+                   id={54343}
+                   title={"Lay's Potato Chips India's Magic Masala Party Pack, 167g Pack"} 
+                   price={"1"} 
+                   image={"https://images-na.ssl-images-amazon.com/images/I/81X7W2BrGaL._SL1500_.jpg"}
+                   rating={2}
+                   description={"Taste the unbeatable blend of delectable indian spices with best quality potatoes From the everyday snack to the impromptu get-togethers, lay's chips are the perfect addition to any occasion 100 Percent vegetarian, best quality potatoes, finest quality of spices and edible vegetable oils Country of Origin: India"}
+                />
+                
+            </div>
+
+            <div className="home__row">
+                <Product 
+                   id={555}
+                   title={"LG 687 L Frost Free Side-by-Side Refrigerator(GC-B247SLUV.APZQEBN, Platinum Silver, Inverter Compressor)"} 
+                   price={"100"} 
+                   image={"https://images-na.ssl-images-amazon.com/images/I/71jZc0j2J2L._SL1500_.jpg"}
+                   rating={4}
+                   description={"Energy savings with inverter linear compressor Capacity 687 L: Suitable for families with 5 or more members Warranty: 1 year on product, 10 years on compressor Multiple cooling air vents distribute and circulate cool air to every corner of the refrigerator, ensuring that each and every food items is properly cooled Smart Diagnosis is a fast and easy way to troubleshoot issues Multi digital sensors monitor both internal and external temperatures for temperature consistency which helps to maintain the quality of food for longer With 600 liters & more of mega capacity, you can enjoy Better organization and smarter storage. Stock up on and store as per your need"} 
+                />
+
+                <Product
+                   id={666} 
+                   title={"SAMSUNG 80 cm (32 inches) HD Ready Smart LED TV 32LM563BPTC (Dark Iron Gray) (2020 Model)"} 
+                   price={"120"}
+                   image={"https://images-na.ssl-images-amazon.com/images/I/81cB6pJsTaL._SL1500_.jpg"}
+                   rating={5}
+                   description={"Resolution: HD Ready (1366x768) | Refresh Rate: 60 hertz Connectivity: 2 HDMI ports to connect set top box, Blu Ray players, gaming console | 1 USB ports to connect hard drives and other USB devices Sound : 20 Watts Output | Dolby Digital Plus Smart TV Features : Voice Assistants | SmartThings App | Personal Computer | Home Cloud | Live Cast | Screen Share | Music System Display : LED Panel | Mega Contrast | PurColor | HD Picture Quality | Slim & Stylish Design Alexa Built-in: Voice control your TV and your day. Just ask Alexa to search for movies, play music, control smart home devices, get sports updates and more Warranty Information: 1 year comprehensive and 1 year additional warranty on Panel by Samsung Installation: For requesting installation/wall mounting/demo of this product once delivered, please directly call Samsung support on [1800407267864/180057267864] and provide product's model name as well as seller's details mentioned on the invoice Easy returns: This product is eligible for replacement within 10 days of delivery in case of any product defects, damage or features not matching the description provided"} 
+                />
+
+                <Product
+                   id={777} 
+                   title={"ASGARD Day & Date Feature Watch for Men, Boys-158-DD1"} 
+                   price={"5"} 
+                   image={"https://images-na.ssl-images-amazon.com/images/I/41XdRy2BxfL.jpg"}
+                   rating={3}
+                   description={"1 Year ASGARD INDIA Replacement Warranty Day & Date display II Leather Strap || Stainless Steel Back || Water Resistant Suitable For Party Wedding, Formal And Casual Occasion Direct From The BRAND House Package Includes: 1 Watch || Company Box || Warranty Card || Gst Paid Bill If this product is sold by Amazon, please review the manufacturer’s website for warranty information. If this product is sold by another party, please contact the seller directly for warranty information for this product. You may also be able to find warranty information on the manufacturer’s website."}
+                />
+            
+                
+            </div>
+
             <ProductRow category="electronics" />
             <ProductRow category="jewelery" />
             <ProductRow category="men clothing" />
             <ProductRow category="women clothing" />
-
+            
+            <Footer />
         </div>
     )
 }
