@@ -15,7 +15,7 @@ import { auth } from './firebase.js';
 import "./App.css"
 
 const promise = loadStripe(
-  "pk_test_51HQDHOG0TvrggPXhY5JdGibulbrEwHs8NUNhDPaO0sxgfmL0aCO0tshlrjcIZJ45A0YFyheHIlZlDeA12oQFwps500hDxUtZFq"
+  "your_stripe_publishable_key"
 );
 
 function App() {
