@@ -26,7 +26,14 @@ const CheckoutProduct = forwardRef((props,ref) => {
                     </p>
                     <p className="checkoutProduct__price">
                         <small>$</small>
-                        <strong>{props.price}</strong>
+
+                        {
+                            props.numberOfItems
+                            ?
+                            (<strong>{props.price} x ({props.numberOfItems})</strong>)
+                            :
+                            (<strong>{props.price} x (1)</strong>)
+                        }
                     </p>
 
                     <div className="checkoutProduct__rating">

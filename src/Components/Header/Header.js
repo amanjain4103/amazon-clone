@@ -1,6 +1,6 @@
 import React from "react";
 import SearchIcon from '@material-ui/icons/Search';
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import {useStateValue} from "../../StateProvider";
 import "./Header.css";
@@ -8,12 +8,33 @@ import { auth } from "../../firebase.js";
 
 const Header = () => {
 
-    const [{basket,user}, dispatch] = useStateValue();
+    const [{basket,user,searchQuery}, dispatch] = useStateValue();
+    const history = useHistory();
 
     const handleAuthentication = () => {
         if(user) {
             auth.signOut();
         }
+    }
+
+    let fakeEvent = {target: {value: "something"}};
+
+    const handleCategorySearch  = (event) => {
+        console.log(event.target.value)
+        dispatch({
+            type: "ADD_SEARCH_QUERY",
+            item: event.target.value
+        })
+        history.push("/search")
+
+
+    }
+    const handleTextSearch  = (event) => {
+
+        event.preventDefault();
+        handleTextSearch(fakeEvent);
+
+
     }
 
     return(
@@ -27,20 +48,25 @@ const Header = () => {
 
             <div className="header__search">   
                 
-                <select className="header__selectDial">
+                <select onChange={(event) => handleCategorySearch(event)} className="header__selectDial">
                     <option>All</option>
-                    <option>Electronics</option> 
-                    <option>Jewelery</option>
-                    <option>Men Clothing</option>
-                    <option>Women Clothing</option>
+                    <option value="electronics" >Electronics</option> 
+                    <option value="jewelery" >Jewelery</option>
+                    <option value="men clothing" >Men Clothing</option>
+                    <option value="women clothing" >Women Clothing</option>
                 </select>
                 
+                <form 
+                  onSubmit={ (event) => handleTextSearch(event)}
+                  style={{"width":"100%"}}
+                >
                 <input 
                     className="header__searchInput"
                     type="text"
                 />
+                </form>
                 
-                <SearchIcon className="header__searchIcon" />
+                <SearchIcon onClick={() => handleCategorySearch(fakeEvent)} className="header__searchIcon" />
 
             </div>
 

@@ -7,11 +7,15 @@ import moment from "moment";
 const Order = (props) => {
     return (
         <div className="order">
-            <h2>Order</h2>
-            <p>{moment.unix(props.order.data.created).format("MMMM Do YYYY, h:mma")}</p>
-            <p className="order__id">
-                <small>{props.order.id}</small>
-            </p>
+            <div className="order__headBar">
+                <h2 className="order__makeCentered">Order</h2>
+                <p className="order__id order__makeCentered">
+                    <small>{props.order.id}</small>
+                </p>
+            </div>
+
+            <p className="order__makeCentered">{moment.unix(props.order.data.created).format("MMMM Do YYYY, h:mma")}</p>
+
             {props.order.data.basket?.map((item) => (
                 <CheckoutProduct 
                     key={item.id}
@@ -32,7 +36,7 @@ const Order = (props) => {
               value={props.order.data.amount /100}
               displayType={"text"}
               thoudsandSeparator={true}
-              prefix={"$"}
+              prefix={"$ "}
             />
         </div>
     )

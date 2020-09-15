@@ -9,10 +9,10 @@
     /* min-width: 100px; */
     background-color: white;
     z-index: 1;
-    flex-grow: 2;
+    max-width: 300px;
+    float: 1;
     transition: 0.4s;
-    max-width: 100%;
-    flex: 1;
+    
 }
 
 .product:hover {
@@ -63,3 +63,4 @@
     margin-bottom: 20px;
     flex: 1;
 }
+

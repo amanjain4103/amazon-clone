@@ -21,6 +21,7 @@ const ProductRow = (props) => {
                 <Product
                    key={product.id}
                    id={product.id} 
+                   category={product.category}
                    title={product.title} 
                    price={product.price} 
                    image={product.image}
@@ -36,7 +37,14 @@ const ProductRow = (props) => {
 
 
             <div className="productRow__info">
-                <h2 className="productRow__category">{props.category}</h2>
+                {
+                    props?.heading
+                    ?
+                    (<h2 className="productRow__category">{props.heading}</h2>)
+                    :
+                    (<h2 className="productRow__category">{props.category}</h2>)
+                }
+                
                 {/* <button>Load More</button> */}
             </div>
             <div className="projectRow__container">

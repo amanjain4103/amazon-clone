@@ -1,7 +1,71 @@
 .orders {
-    padding: 20px 80px;
+    padding-top:  100px;
+    max-width: 1500px;
+    margin: auto;
 }
 
 .orders > h1 {
     margin: 30px 0px;
+}
+
+.orders__heading{
+    text-transform: uppercase;
+    border-bottom: 5px solid gray;
+    border-top: 5px solid gray;
+    padding: 10px;
+    transition: 0.4s ease-out;
+    text-align: center;
+}
+
+.orders__heading:hover {
+    text-transform: uppercase;
+    border: 5px dotted gray;
+    padding: 13px 20px 8px 20px ;
+}
+
+.orders__error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.orders__errorHeading {
+    font-size: 4rem;
+}
+
+.orders__amzStyleButton {
+    outline-width: 0;
+    padding: 5px 10px;
+    background-color: #f0c14b;
+    border: 1px solid;
+    margin : 5px;
+    margin-top : 10px;
+    border-color: #a88734 #9c7e31 #846a29;
+    color: #111111; 
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.orders__amzStyleButton {
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 600px) {
+    
+    .orders {
+        padding-top: 180px;
+    }
+    .order__headBar {
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: 10px;
+    }
+
+    .orders__success {
+        align-items: center;
+        justify-content: center;
+    }
+    
 }

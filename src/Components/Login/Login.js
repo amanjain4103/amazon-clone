@@ -1,10 +1,14 @@
 import React, {useState} from "react";
 import "./Login.css";
 import {Link, useHistory} from "react-router-dom";
-import {auth} from "../../firebase.js"
+import GoogleButton from 'react-google-button';
+import firebase from "firebase";
+import {auth, GoogleProvider} from "../../firebase.js"
+import {useStateValue} from "../../StateProvider";
 
 const Login = () => {
 
+    const [{}, dispatch] = useStateValue();
     const history = useHistory();
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
@@ -18,7 +22,7 @@ const Login = () => {
             console.log(auth)
               history.push("/")
           })
-          .catch(err => console.log(err.message))
+          .catch(err => alert(err.message))
     }
 
     const register = (e) => {
@@ -33,7 +37,29 @@ const Login = () => {
                   history.push('/')
               }
           })
-          .catch(err => console.log(err.message))
+          .catch(err => alert(err.message))
+    }
+
+    const handleGoogleSignIn = () => {
+        firebase.auth().signInWithPopup(GoogleProvider).then(function(result) {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            // var user = result.user;
+
+            dispatch({
+                type:"SET_USER",
+                item: {
+                    user: result.user
+                }
+            })
+
+
+            history.push("/");
+            
+          }).catch(function(error) {
+              alert(error.message)
+          });
     }
 
     return (
@@ -57,10 +83,21 @@ const Login = () => {
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
 
                     <button type="submit" className="login__signinButton" onClick={signIn}>Sign-in</button>
+                    
                 </form>
 
                 <p> I have read and accepted the Terms of use and privacy policy. Amazon may als keep me informed via email about products and services </p>
                 <button className="login__registerButton" onClick={register}>Create your Amazon Account</button>
+                
+                <br />
+                <hr />
+                <br />
+
+                <div className="login__googleButtonContainer">
+                        <GoogleButton
+                            onClick={handleGoogleSignIn}
+                        />
+                    </div>
             </div>
 
         </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Subtotal from "../Subtotal/Subtotal";
 import {useStateValue} from "../../StateProvider";
 import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
@@ -10,6 +10,7 @@ const Checkout = () => {
 
     
   const [{basket,user}, dispatch] = useStateValue();
+  const [trackBasket,setTrackBasket] = useState(basket);
 
     return(
         <div className="checkout">
@@ -26,6 +27,7 @@ const Checkout = () => {
                             <CheckoutProduct 
                                 key={Date.now()+index}
                                 id={item.id}
+                                numberOfItems={item?.numberOfItems+1}
                                 title={item.title}
                                 image={item.image}
                                 price={item.price}

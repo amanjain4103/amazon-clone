@@ -4,19 +4,38 @@ import {useStateValue} from "../../StateProvider";
 import {useHistory} from "react-router-dom";
 import "./Subtotal.css";
 
+
 const Subtotal = () => {
 
-    const [{basket},dispatch] = useStateValue();
+    const [{basket,user},dispatch] = useStateValue();
     const history = useHistory();
 
     const getBasketTotal = (basket) => {
 
         let subtotal = parseFloat(0);
         basket.map((item) => {
+            if(item.numberOfItems) {
+                subtotal+= parseFloat(item.price * item.numberOfItems);
+            }
             subtotal+= parseFloat(item.price)
             return item;
         })
         return parseFloat(subtotal).toFixed(2);
+    }
+
+    const handleProceedToCheckOut = () => {
+        let total = getBasketTotal(basket);
+        if(user) {
+            if(total <= 0 ) {
+                alert("The Specified amount is less Than the minimun checkout Limit!");
+            }else if(total > 5000) {
+                alert("The Shopping limit exceeded Please remove some Items from Basket!");
+            }else {
+                history.push("/payment");
+            }
+        }else {
+            alert("You Need To Login First!!!")
+        }
     }
 
     return (
@@ -39,7 +58,7 @@ const Subtotal = () => {
             prefix={"$"}
             />
 
-            <button onClick={e => history.push("/payment")}>Proceed To Checkout</button>
+            <button onClick={handleProceedToCheckOut}>Proceed To Checkout</button>
         </div>
     )
 }

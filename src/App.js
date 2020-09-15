@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import Header from "./Components/Header/Header";
 import Home from "./Components/Home/Home";
+import Search from "./Components/Search/Search";
 import Checkout from "./Components/Checkout/Checkout";
 import Payment from "./Components/Payment/Payment";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
@@ -79,6 +80,10 @@ function App() {
             <Elements stripe={promise}>
               <Payment />
             </Elements>
+          </Route>
+          <Route path="/search">
+            <Header />
+            <Search />
           </Route>
           <Route path="/">
             <Header />

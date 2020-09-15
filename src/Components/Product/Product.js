@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState} from "react";
 import {useStateValue} from "../../StateProvider";
 import {Link, useHistory} from "react-router-dom";
 
@@ -8,10 +8,13 @@ const Product = (props) => {
 
     const [{basket}, dispatch] = useStateValue();
     const history = useHistory();
+    const [addingMe,setAddingMe] = useState("Add to basket");
 
     const addToBasket = () => {
         //dispatch  item into data layer
         
+        setAddingMe("adding ...");
+
         dispatch({
             type: "ADD_TO_BASKET",
             item: {
@@ -22,6 +25,9 @@ const Product = (props) => {
                 rating: props.rating
             }
         })
+
+        setTimeout(() => { setAddingMe("added ") },500);
+        setTimeout(() => { setAddingMe("Add to basket") },800);
         
     }
 
@@ -35,7 +41,8 @@ const Product = (props) => {
                 image: props.image,
                 price: props.price,
                 rating: props.rating,
-                description: props.description
+                description: props.description,
+                category: props.category
             }
         })
 
@@ -63,8 +70,9 @@ const Product = (props) => {
             
             <div className="product__buttons">
                 <button onClick={viewThisProduct}>View</button>
-                <button onClick={addToBasket}>Add to basket</button>
+                <button onClick={addToBasket}>{addingMe}</button>
             </div>
+            
 
         </div>
     )

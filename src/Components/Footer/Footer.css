@@ -8,11 +8,13 @@
 
 .footer__backToTop {
     color:white;
+    font-size: 18px;
     display: flex;
     justify-content: center;
-    padding: 5px 0px;
+    padding: 10px 0px;
     background-color: rgba(35, 47, 62,0.7);
     transition: 0.2s;
+    font-weight: 30;
 }
 .footer__backToTop:hover {
     background-color: #232F3E;
@@ -25,7 +27,7 @@
     padding:20px;
     flex-wrap: wrap;
     background-color:#131A22;
-
+    margin: 40px 0px;
 }
 
 .footer__mainInner {
@@ -54,6 +56,7 @@
     display: flex;
     justify-content: center;
     padding: 10px 0px;
+    background-color:rgba(35, 47, 62,0.2);
 }
 
 

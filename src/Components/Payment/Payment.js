@@ -43,7 +43,7 @@ const Payment = () => {
         getClientSecret();
     },[basket])
 
-    console.log('THE SECRET IS >>>', clientSecret)
+    // console.log('THE SECRET IS >>>', clientSecret)
     // console.log('👱', user)
 
     const handleSubmit = async (event) => {
@@ -79,7 +79,7 @@ const Payment = () => {
 
                 history.replace("/orders")   
             }else {
-                console.log(error);
+                alert("unable to proceed payment, Try Again!!")
             }
         })
         .catch((err) => console.log(err))
@@ -119,10 +119,12 @@ const Payment = () => {
                     </div>
                     <div className="payment__items">
                          {
-                             basket.map(item => {
+                             basket.map((item,index) => {
                                  return <CheckoutProduct
                                             id={item.id}
+                                            key={Date.now()+index}
                                             title={item.title}
+                                            numberOfItems={item?.numberOfItems+1}
                                             image={item.image}
                                             price={item.price}
                                             rating={parseInt((item.price)%5) || 5}

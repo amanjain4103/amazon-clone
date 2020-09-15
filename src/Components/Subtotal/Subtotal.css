@@ -9,6 +9,7 @@
     border-radius: 3px;
     padding: 25px 15px;
     margin: 10px 10px;
+    transition: 0.3s;
 }
 
 .subtotal:hover {
